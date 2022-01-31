@@ -17,27 +17,24 @@ const inventors = [
 // Array.prototype.filter()
 // 1. Filter the array of inventors into a new array containing only the inventors born in the 1500's.
 let invent1500 = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
-console.log(`Problem 1:`)
+console.log(`Problem 1: born in 1500's`)
 console.log(invent1500)
 
 // Array.prototype.map()
 // 2. Map the array of the inventors into a new array containing objects with just the first and last names as properties.
 
-let firstLast = inventors.map(function(inventor){
-  return {first:inventor.first, last:inventor.last}
-})
+let firstLast = inventors.map(inventor => ({first:inventor.first, last:inventor.last}))
 
-console.log(`Problem 2:`)
+console.log(`Problem 2: firstLast`)
 console.log(firstLast)
 
 // 3. Sort the inventors by birthdate, from those born furthest in the past to those born most recently.
 
+let birthdays = inventors.sort((p1, p2) => {
+  return p1.year - p2.year
+})
 
-// COME BACK FOR THIS ---------------------------------------------------
-
-
-let birthdays = inventors.sort(inventors.year)
-console.log(`Problem 3:`)
+console.log(`Problem 3: sort by birthday`)
 console.log(birthdays)
 
 
@@ -46,12 +43,16 @@ console.log(birthdays)
 
 // COME BACK FOR THIS ---------------------------------------------------
 
-let lifeSpan = inventors.map(function(inventor){
+let life = inventors.map(function(inventor){
   return {first:inventor.first, span:parseInt((inventor.passed - inventor.year))}
 })
 
-console.log(`Problem 4:`)
-console.log(lifeSpan)
+//life.forEach(inventor => console.log(inventor))
+
+
+//life = Object.entries(life).sort((a,b) => b[1]-a[1])
+console.log(`Problem 4: shortest -> longest life`)
+console.log(Object.entries(life).sort((a,b) => b[1]-a[1]))
 
 // Array.prototype.reduce()
 // 5. Find how many years all the inventors lived combined.
