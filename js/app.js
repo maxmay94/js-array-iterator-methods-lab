@@ -133,3 +133,7 @@ console.log(commentId)
 
 // Array.prototype.findIndex()
 // 11. Find the index of the comment with an id of 123523.
+
+let commentIndx = comments.findIndex(comment => comment.id === 123523)
+console.log('Problem 11: find comment index')
+console.log(commentIndx)
