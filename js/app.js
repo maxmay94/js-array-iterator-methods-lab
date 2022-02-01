@@ -51,7 +51,7 @@ console.log(life)
 // 5. Find how many years all the inventors lived combined.
 
 let totalYears = inventors.reduce(function(prev, inventor) {
-  return prev +(inventor.passed - inventor.year)
+  return prev + (inventor.passed - inventor.year)
 }, 0)
 
 console.log(`Problem 5: combined years`)
@@ -77,10 +77,13 @@ const people = [
 
 let firstLast2 = people.map(function(person) {
   nameArry = person.split(', ')
-  return {First:nameArry[1], Last: nameArry[0]} 
+  return  `${nameArry[1]} ${nameArry[0]}`
+  //return {First:nameArry[1], Last: nameArry[0]} 
 })
 console.log('Problem 6: People Map')
 console.log(firstLast2)
+
+
 
 
 
@@ -123,7 +126,9 @@ const comments = [
 
 // Array.prototype.find()
 // 10. Find the comment with the id of 823423.
-
+let commentId = comments.find(comment => comment.id ===823423)
+console.log('Problem 10: find comment ID')
+console.log(commentId)
 
 
 // Array.prototype.findIndex()
