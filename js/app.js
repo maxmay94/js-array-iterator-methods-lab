@@ -18,7 +18,7 @@ const inventors = [
 // 1. Filter the array of inventors into a new array containing only the inventors born in the 1500's.
 let invent1500 = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
 console.log(`Problem 1: born in 1500's`)
-console.log(invent1500)
+console.table(invent1500)
 
 // Array.prototype.map()
 // 2. Map the array of the inventors into a new array containing objects with just the first and last names as properties.
@@ -26,7 +26,7 @@ console.log(invent1500)
 let firstLast = inventors.map(inventor => ({first:inventor.first, last:inventor.last}))
 
 console.log(`Problem 2: firstLast`)
-console.log(firstLast)
+console.table(firstLast)
 
 // 3. Sort the inventors by birthdate, from those born furthest in the past to those born most recently.
 
@@ -35,17 +35,20 @@ let birthdays = inventors.sort((inventor1, inventor2) => {
 })
 
 console.log(`Problem 3: sort by birthday`)
-console.log(birthdays)
+console.table(birthdays)
 
 
 // 4. Sort the inventors by years lived from shortest to longest-lived.
+
+// sort always expects 2 arguments
+// callback function in sort needs to return positive value, negative value, or zero. based on what it returns that is what sorts the array
 
 let life = inventors.sort((inventor1, inventor2) => {
   return (inventor1.passed - inventor1.year) - (inventor2.passed - inventor2.year)
 })
 
 console.log(`Problem 4: sort by lifespan`)
-console.log(life)
+console.table(life)
 
 // Array.prototype.reduce()
 // 5. Find how many years all the inventors lived combined.
@@ -55,7 +58,7 @@ let totalYears = inventors.reduce(function(prev, inventor) {
 }, 0)
 
 console.log(`Problem 5: combined years`)
-console.log(totalYears)
+console.table(totalYears)
 
 
 const people = [
@@ -81,7 +84,7 @@ let firstLast2 = people.map(function(person) {
   //return {First:nameArry[1], Last: nameArry[0]} 
 })
 console.log('Problem 6: People Map')
-console.log(firstLast2)
+console.table(firstLast2)
 
 
 
@@ -102,10 +105,10 @@ const vehicles = data.reduce((obj, vehicle) => {
     obj[vehicle] = 1
   }
   return obj
-}, {}) // empty curly braces at end so it knows we want to start with an empty object, this is where it builds the object
+}, {}) // empty curly braces at end so it knows we want to start with an empty object
 
 console.log('Problem 7: count transport')
-console.log(vehicles)
+console.table(vehicles)
 
 
 const devs = [
@@ -120,14 +123,14 @@ const devs = [
 let today = new Date()
 let one19 = devs.some(dev => (today.getFullYear() - dev.year) >= 19)
 console.log('Problem 8: one 19')
-console.log(one19)
+console.table(one19)
 
 // Array.prototype.every()
 // 9. Check if everyone is 19 or older.
 
 let all19 = devs.every(dev => (today.getFullYear() - dev.year) >= 19)
 console.log('Problem 9: All 19')
-console.log(all19)
+console.table(all19)
 
 const comments = [
   { text: 'Love this!', id: 523423 },
@@ -141,7 +144,7 @@ const comments = [
 // 10. Find the comment with the id of 823423.
 let commentId = comments.find(comment => comment.id ===823423)
 console.log('Problem 10: find comment by ID')
-console.log(commentId)
+console.table(commentId)
 
 
 // Array.prototype.findIndex()
@@ -149,4 +152,4 @@ console.log(commentId)
 
 let commentIndx = comments.findIndex(comment => comment.id === 123523)
 console.log('Problem 11: find comment index')
-console.log(commentIndx)
+console.table(commentIndx)
