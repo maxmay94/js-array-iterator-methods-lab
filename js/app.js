@@ -30,8 +30,8 @@ console.log(firstLast)
 
 // 3. Sort the inventors by birthdate, from those born furthest in the past to those born most recently.
 
-let birthdays = inventors.sort((p1, p2) => {
-  return p1.year - p2.year
+let birthdays = inventors.sort((inventor1, inventor2) => {
+  return inventor1.year - inventor2.year
 })
 
 console.log(`Problem 3: sort by birthday`)
@@ -40,10 +40,8 @@ console.log(birthdays)
 
 // 4. Sort the inventors by years lived from shortest to longest-lived.
 
-// COME BACK FOR THIS ---------------------------------------------------
-
-let life = inventors.sort((p1, p2) => {
-  return (p1.passed - p1.year) - (p2.passed - p2.year)
+let life = inventors.sort((inventor1, inventor2) => {
+  return (inventor1.passed - inventor1.year) - (inventor2.passed - inventor2.year)
 })
 
 console.log(`Problem 4: sort by lifespan`)
@@ -52,6 +50,12 @@ console.log(life)
 // Array.prototype.reduce()
 // 5. Find how many years all the inventors lived combined.
 
+let totalYears = inventors.reduce(function(prev, inventor) {
+  return prev +(inventor.passed - inventor.year)
+}, 0)
+
+console.log(`Problem 5: combined years`)
+console.log(totalYears)
 
 
 const people = [
@@ -70,6 +74,14 @@ const people = [
 
 // Array.prototype.map()
 // 6. Map the people array such that the new array consists of strings with the names formatted as "First Last", e.g., "Becker, Carl" should be mapped to "Carl Becker".
+
+let firstLast2 = people.map(function(person) {
+  nameArry = person.split(', ')
+  return {First:nameArry[1], Last: nameArry[0]} 
+})
+console.log('Problem 6: People Map')
+console.log(firstLast2)
+
 
 
 
