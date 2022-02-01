@@ -38,21 +38,16 @@ console.log(`Problem 3: sort by birthday`)
 console.log(birthdays)
 
 
-
 // 4. Sort the inventors by years lived from shortest to longest-lived.
 
 // COME BACK FOR THIS ---------------------------------------------------
 
-let life = inventors.map(function(inventor){
-  return {first:inventor.first, span:parseInt((inventor.passed - inventor.year))}
+let life = inventors.sort((p1, p2) => {
+  return (p1.passed - p1.year) - (p2.passed - p2.year)
 })
 
-//life.forEach(inventor => console.log(inventor))
-
-
-//life = Object.entries(life).sort((a,b) => b[1]-a[1])
-console.log(`Problem 4: shortest -> longest life`)
-console.log(Object.entries(life).sort((a,b) => b[1]-a[1]))
+console.log(`Problem 4: sort by lifespan`)
+console.log(life)
 
 // Array.prototype.reduce()
 // 5. Find how many years all the inventors lived combined.
