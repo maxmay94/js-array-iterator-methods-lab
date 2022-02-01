@@ -85,9 +85,6 @@ console.log(firstLast2)
 
 
 
-
-
-
 const data = [
   'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
   'bike', 'walk', 'car', 'van', 'car', 'truck'
@@ -108,8 +105,10 @@ const devs = [
 
 // Array.prototype.some()
 // 8. Check if at least one person is 19 or older.
-
-
+let today = new Date()
+let one19 = devs.some(dev => (today.getFullYear() - dev.year))
+console.log('Problem 8: one 19')
+console.log(one19)
 
 // Array.prototype.every()
 // 9. Check if everyone is 19 or older.
@@ -127,7 +126,7 @@ const comments = [
 // Array.prototype.find()
 // 10. Find the comment with the id of 823423.
 let commentId = comments.find(comment => comment.id ===823423)
-console.log('Problem 10: find comment ID')
+console.log('Problem 10: find comment by ID')
 console.log(commentId)
 
 
