@@ -93,7 +93,30 @@ const data = [
 // Array.prototype.reduce()
 // 7. Count the number of instances for each of the data items.
 // Hint: Return an object where the keys are 'car', 'truck', etc., and the value is the total number of times each data item appears.
+let cars = 0
+let trucks = 0
+let bikes = 0
+let vans = 0
+let feet = 0
 
+let vehicles = data.reduce(function(prev, next) {
+  if(next === 'car') {
+    cars++
+  } else if(next === 'truck') {
+    trucks++
+  } else if(next === 'bike') {
+    bikes++
+  } else if(next === 'van') {
+    vans++
+  } else {
+    feet++
+  }
+
+  return {car: cars, truck: trucks, bike: bikes, van: vans, walk: feet}
+}, 0)
+
+console.log('Problem 7: count transport')
+console.log(vehicles)
 
 
 const devs = [
