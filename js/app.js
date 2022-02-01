@@ -106,14 +106,16 @@ const devs = [
 // Array.prototype.some()
 // 8. Check if at least one person is 19 or older.
 let today = new Date()
-let one19 = devs.some(dev => (today.getFullYear() - dev.year))
+let one19 = devs.some(dev => (today.getFullYear() - dev.year) >= 19)
 console.log('Problem 8: one 19')
 console.log(one19)
 
 // Array.prototype.every()
 // 9. Check if everyone is 19 or older.
 
-
+let all19 = devs.every(dev => (today.getFullYear() - dev.year) >= 19)
+console.log('Problem 9: All 19')
+console.log(all19)
 
 const comments = [
   { text: 'Love this!', id: 523423 },
