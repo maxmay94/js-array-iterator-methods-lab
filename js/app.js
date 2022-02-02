@@ -91,13 +91,14 @@ console.table(firstLast2)
 const data = [
   'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
   'bike', 'walk', 'car', 'van', 'car', 'truck'
+  
 ];
 
 // Array.prototype.reduce()
 // 7. Count the number of instances for each of the data items.
 // Hint: Return an object where the keys are 'car', 'truck', etc., and the value is the total number of times each data item appears.
 
-
+// REGULAR SOLVE FOR 7
 const vehicles = data.reduce((obj, vehicle) => {
   if(obj[vehicle]) {
     obj[vehicle]++
@@ -107,8 +108,40 @@ const vehicles = data.reduce((obj, vehicle) => {
   return obj
 }, {}) // empty curly braces at end so it knows we want to start with an empty object
 
+// SUPER FLEX SOLVE FOR 7
+let vehicleObjArry = []
+
+const vehicles2 = data.reduce((obj, vehicle) => {
+  let indx = 0
+  let vehicleObj = {}
+
+  if(obj[vehicle]) {
+    obj[vehicle]++
+
+    indx = vehicleObjArry.findIndex(vhcle => vhcle.name === vehicle)
+    vehicleObjArry[indx].number++
+
+  } else {
+    obj[vehicle] = 1
+
+    vehicleObj.name = vehicle
+    vehicleObj.number = 1
+    vehicleObjArry.push(vehicleObj)
+  }
+  return obj
+}, {}) 
+
+// sort least to greatest
+const vehiclesSorted = vehicleObjArry.sort((v1, v2) => {
+  return v1.number - v2.number
+})
+
+
 console.log('Problem 7: count transport')
 console.table(vehicles)
+
+console.log('Problem 7: super flex edition')
+console.table(vehiclesSorted)
 
 
 const devs = [
